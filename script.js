@@ -167,3 +167,257 @@ renderProducts();
 renderCart();
 initInteractions();
 initReveal();
+const PHONE_MODELS = {
+  "Apple": [
+    "iPhone 17",
+    "iPhone 17 Pro",
+    "iPhone 17 Pro Max",
+    "iPhone Air",
+    "iPhone 16",
+    "iPhone 16 Plus",
+    "iPhone 16 Pro",
+    "iPhone 16 Pro Max",
+    "iPhone 16e",
+    "iPhone 15",
+    "iPhone 15 Plus",
+    "iPhone 15 Pro",
+    "iPhone 15 Pro Max",
+    "iPhone 14",
+    "iPhone 14 Plus",
+    "iPhone 14 Pro",
+    "iPhone 14 Pro Max",
+    "iPhone 13",
+    "iPhone 13 Mini",
+    "iPhone 13 Pro",
+    "iPhone 13 Pro Max",
+    "iPhone 12",
+    "iPhone 12 Mini",
+    "iPhone 12 Pro",
+    "iPhone 12 Pro Max",
+    "iPhone 11",
+    "iPhone 11 Pro",
+    "iPhone 11 Pro Max",
+    "iPhone XS",
+    "iPhone XS Max",
+    "iPhone XR",
+    "iPhone X",
+    "iPhone 8",
+    "iPhone 8 Plus",
+    "iPhone 7",
+    "iPhone 7 Plus",
+    "iPhone SE 2022",
+    "iPhone SE 2020",
+    "iPhone SE"
+  ],
+
+  "Samsung": [
+    "Samsung Galaxy S25",
+    "Samsung Galaxy S25 Plus",
+    "Samsung Galaxy S25 Ultra",
+    "Samsung Galaxy S25 Edge",
+    "Samsung Galaxy S24",
+    "Samsung Galaxy S24 Plus",
+    "Samsung Galaxy S24 Ultra",
+    "Samsung Galaxy S24 FE",
+    "Samsung Galaxy S23",
+    "Samsung Galaxy S23 Plus",
+    "Samsung Galaxy S23 Ultra",
+    "Samsung Galaxy S23 FE",
+    "Samsung Galaxy S22",
+    "Samsung Galaxy S22 Plus",
+    "Samsung Galaxy S22 Ultra",
+    "Samsung Galaxy S21",
+    "Samsung Galaxy S21 Plus",
+    "Samsung Galaxy S21 Ultra",
+    "Samsung Galaxy S21 FE",
+    "Samsung Galaxy S20",
+    "Samsung Galaxy S20 Plus",
+    "Samsung Galaxy S20 Ultra",
+    "Samsung Galaxy S20 FE",
+
+    "Samsung Galaxy A06",
+    "Samsung Galaxy A14",
+    "Samsung Galaxy A15",
+    "Samsung Galaxy A16",
+    "Samsung Galaxy A23",
+    "Samsung Galaxy A24",
+    "Samsung Galaxy A25",
+    "Samsung Galaxy A32",
+    "Samsung Galaxy A33",
+    "Samsung Galaxy A34",
+    "Samsung Galaxy A35",
+    "Samsung Galaxy A52",
+    "Samsung Galaxy A52s",
+    "Samsung Galaxy A53",
+    "Samsung Galaxy A54",
+    "Samsung Galaxy A55",
+    "Samsung Galaxy A56",
+    "Samsung Galaxy A72",
+    "Samsung Galaxy A73",
+
+    "Samsung Galaxy Z Flip7",
+    "Samsung Galaxy Z Fold7",
+    "Samsung Galaxy Z Flip6",
+    "Samsung Galaxy Z Fold6",
+    "Samsung Galaxy Z Flip5",
+    "Samsung Galaxy Z Fold5",
+    "Samsung Galaxy Z Flip4",
+    "Samsung Galaxy Z Fold4",
+    "Samsung Galaxy Z Flip3",
+    "Samsung Galaxy Z Fold3",
+
+    "Samsung Galaxy Note 20",
+    "Samsung Galaxy Note 20 Ultra",
+    "Samsung Galaxy Note 10",
+    "Samsung Galaxy Note 10 Plus"
+  ],
+
+  "Xiaomi / Redmi / Poco": [
+    "Xiaomi 15",
+    "Xiaomi 15 Pro",
+    "Xiaomi 15 Ultra",
+    "Xiaomi 15T",
+    "Xiaomi 15T Pro",
+    "Xiaomi 14",
+    "Xiaomi 14 Pro",
+    "Xiaomi 14 Ultra",
+    "Xiaomi 14T",
+    "Xiaomi 14T Pro",
+    "Xiaomi 13",
+    "Xiaomi 13 Pro",
+    "Xiaomi 13 Ultra",
+    "Xiaomi 13T",
+    "Xiaomi 13T Pro",
+    "Xiaomi 12",
+    "Xiaomi 12 Pro",
+    "Xiaomi 12T",
+    "Xiaomi 12T Pro",
+    "Xiaomi Mi 11",
+    "Xiaomi Mi 11 Lite",
+    "Xiaomi Mi 11 Ultra",
+
+    "Redmi Note 14",
+    "Redmi Note 14 Pro",
+    "Redmi Note 14 Pro Plus",
+    "Redmi Note 13",
+    "Redmi Note 13 Pro",
+    "Redmi Note 13 Pro Plus",
+    "Redmi Note 12",
+    "Redmi Note 12 Pro",
+    "Redmi Note 12 Pro Plus",
+    "Redmi Note 11",
+    "Redmi Note 11 Pro",
+    "Redmi Note 11 Pro Plus",
+    "Redmi Note 10",
+    "Redmi Note 10 Pro",
+    "Redmi 14C",
+    "Redmi 13C",
+    "Redmi 12",
+    "Redmi 10",
+    "Redmi A4",
+    "Redmi A3",
+    "Redmi A2",
+
+    "Poco F7",
+    "Poco F7 Pro",
+    "Poco F6",
+    "Poco F6 Pro",
+    "Poco F5",
+    "Poco F5 Pro",
+    "Poco X7",
+    "Poco X7 Pro",
+    "Poco X6",
+    "Poco X6 Pro",
+    "Poco X5",
+    "Poco X5 Pro",
+    "Poco M7 Pro",
+    "Poco M6",
+    "Poco M6 Pro",
+    "Poco C75",
+    "Poco C65"
+  ],
+
+  "OPPO": [
+    "OPPO Find X9",
+    "OPPO Find X9 Pro",
+    "OPPO Find X8",
+    "OPPO Find X8 Pro",
+    "OPPO Find X8 Ultra",
+    "OPPO Find X8s",
+    "OPPO Find X8s Plus",
+    "OPPO Find X7",
+    "OPPO Find X7 Ultra",
+    "OPPO Find X6",
+    "OPPO Find X6 Pro",
+    "OPPO Find X5",
+    "OPPO Find X5 Pro",
+    "OPPO Find X3",
+    "OPPO Find X3 Pro",
+
+    "OPPO Reno 14",
+    "OPPO Reno 14 Pro",
+    "OPPO Reno 13",
+    "OPPO Reno 13 Pro",
+    "OPPO Reno 12",
+    "OPPO Reno 12 Pro",
+    "OPPO Reno 12 FS",
+    "OPPO Reno 11",
+    "OPPO Reno 11 Pro",
+    "OPPO Reno 10",
+    "OPPO Reno 10 Pro",
+    "OPPO Reno 8",
+    "OPPO Reno 8 Pro",
+    "OPPO Reno 7",
+    "OPPO Reno 7 Pro",
+
+    "OPPO A98",
+    "OPPO A96",
+    "OPPO A94",
+    "OPPO A78",
+    "OPPO A77",
+    "OPPO A76",
+    "OPPO A74",
+    "OPPO A60",
+    "OPPO A58",
+    "OPPO A57",
+    "OPPO A38",
+    "OPPO A18",
+    "OPPO A17",
+    "OPPO A16"
+  ],
+
+  "Autres marques": [
+    "Honor",
+    "OnePlus",
+    "Google Pixel",
+    "Motorola",
+    "Realme",
+    "Vivo",
+    "Huawei",
+    "Je ne trouve pas mon modèle"
+  ]
+};
+
+function populatePhoneSelects() {
+  const selects = document.querySelectorAll(".phone-select");
+
+  selects.forEach((select) => {
+    select.innerHTML = '<option value="">Choisir mon modèle</option>';
+
+    Object.entries(PHONE_MODELS).forEach(([brand, models]) => {
+      const group = document.createElement("optgroup");
+      group.label = brand;
+
+      models.forEach((model) => {
+        const option = document.createElement("option");
+        option.value = model;
+        option.textContent = model;
+        group.appendChild(option);
+      });
+
+      select.appendChild(group);
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", populatePhoneSelects);
