@@ -42,7 +42,7 @@
   align-items:center;
   padding:clamp(78px,9vw,132px) clamp(18px,4vw,60px);
   overflow:hidden;
-  background:#fff url('assets/banner-coques-colorees.png') center right/cover no-repeat;
+  background:#fff url('assets/photos/banner-coques-colorees.png') center right/cover no-repeat;
 }
 .hero-banner::before{
   content:"";
