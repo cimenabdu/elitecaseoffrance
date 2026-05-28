@@ -230,3 +230,29 @@
     text-align: center;
   }
 }
+.custom-model-box {
+  margin-top: 16px;
+}
+
+.custom-model-box label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #111;
+  font-weight: 600;
+}
+
+.custom-model-box input {
+  width: 100%;
+  padding: 15px 16px;
+  border: 1px solid #d8d8d8;
+  border-radius: 14px;
+  background: #fff;
+  color: #111;
+  font-size: 0.95rem;
+}
+
+.custom-model-box input:focus {
+  outline: none;
+  border-color: #000;
+}
